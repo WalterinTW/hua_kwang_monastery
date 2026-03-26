@@ -24,29 +24,35 @@
             overflow-x: hidden;
         }
 
+        /* 新增：頂部資訊列，解決重疊問題 */
+        .top-bar {
+            background-color: #700000; /* 比主色稍深 */
+            color: #eee;
+            padding: 8px 15px;
+            display: flex;
+            justify-content: flex-end; /* 靠右對齊 */
+            align-items: center;
+            font-size: 0.85rem;
+            border-bottom: 1px solid var(--secondary-color);
+        }
+        .visitor-counter {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .visitor-counter img { height: 20px; }
+
         header {
             background-color: var(--primary-color);
             color: white;
-            padding: 2.5rem 1rem;
+            padding: 2rem 1rem 2.5rem 1rem;
             text-align: center;
             border-bottom: 6px solid var(--secondary-color);
-            position: relative;
         }
-        .visitor-counter {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(0,0,0,0.2);
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            border: 1px solid var(--secondary-color);
-        }
-        .visitor-counter img { vertical-align: middle; }
-
-        header h1 { font-size: 1.8rem; margin: 0 0 10px 0; }
+        header h1 { font-size: 1.8rem; margin: 0 0 10px 0; word-break: keep-all; }
         header p { font-size: 1rem; opacity: 0.9; margin: 0; }
 
+        /* 導覽列 */
         .controls {
             position: sticky;
             top: 0;
@@ -87,6 +93,7 @@
         .content-section.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
+        /* 時間線樣式 */
         .timeline-item { 
             background: white; 
             border: 1px solid #ddd; 
@@ -132,6 +139,7 @@
         }
         .detail-content { color: #444; text-align: justify; font-size: 1.05rem; }
 
+        /* 聲明卡片樣式 */
         .statement-card { 
             background: white; 
             padding: 25px; 
@@ -150,7 +158,6 @@
             .statement-card { padding: 45px; }
             button { flex: 0 1 auto; width: auto; }
             .timeline-header h3 { font-size: 1.15rem; }
-            .visitor-counter { top: 20px; right: 20px; padding: 8px 15px; font-size: 0.9rem; }
         }
 
         footer { text-align: center; padding: 3rem 1rem; color: #888; font-size: 0.85rem; border-top: 1px solid #eee; }
@@ -158,11 +165,14 @@
 </head>
 <body>
 
-<header>
+<div class="top-bar">
     <div class="visitor-counter">
         <span id="counter-label">訪客人數: </span>
-        <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhuahkwang.github.io&count_bg=%23D4AF37&title_bg=%238B0000&icon=&icon_color=%23E7E7E7&title=Total&edge_flat=false" alt="Visitor Counter"/>
+        <img src="https://hitwebcounter.com/counter/counter.php?page=10000000&style=0005&nbdigits=5&type=page&initCount=0" title="Free Counter" Alt="web counter" border="0" />
     </div>
+</div>
+
+<header>
     <h1 id="header-title">舍衛國華光寺復興計畫</h1>
     <p id="header-sub">Restoration of Huah Kwang (Chinese) Temple, Shravasti</p>
 </header>
@@ -192,109 +202,109 @@
         { 
             zhHeader: "1938 年：華籍僧侶巴巴仁證法師抵達印度舍衛國，立志興建華光寺", 
             enHeader: "1938: Arrival of Chinese Monk Ven. Baba Ren Cheng in Shravasti and the Vow to Build the Temple",
-            zhDetail: "華籍僧侶巴巴仁證法師於 1937年決定前往印度聖地朝禮。1938年他抵達舍衛國祇樹給孤獨園，於菩提樹下盤坐禪修，並決定為自己搭建一座小屋，作為接引各地僧侶的寺院。",
+            zhDetail: "華籍僧侶巴巴仁證法師於 1937年決定前往印度聖地朝禮。1938年他抵達舍衛國祇樹給孤獨園，於菩提樹下盤坐禪修，並決定為自己搭建一座小屋，作為接引各地僧侶的寺院 。",
             enDetail: "Late Baba Reverend Chen (Ven. Baba Ren Cheng) decided to travel to the holy land of India in 1937. He reached Jetavana Park in Shravasti in 1938, meditated under the Bodhi tree, and decided to build a small hut to serve as a monastery for monks from all over."
         },
         { 
             zhHeader: "1957 年 5 月 14 日：新加坡佛教總會主席李俊誠居士為大雄寶殿碑匾撰文", 
             enHeader: "1957-05-14: Inscription of the Memorial Tablet by Mr. Lee Choon Seng",
-            zhDetail: "新加坡佛教總會主席李俊誠於 1957 年 5 月 14 日撰寫碑文。詳盡記載了寺院建設的各個階段以及每位施主的捐款金額。",
+            zhDetail: "新加坡佛教總會主席李俊誠於 1957 年 5 月 14 日撰寫碑文。詳盡記載了寺院建設的各個階段以及每位施主的捐款金額 。",
             enDetail: "The inscription was written by Lee Choon Seng, Chairman of the Singapore Buddhist Federation, on 14 May 1957. It records the stages of temple construction and the list of donors to provide historical evidence for future generations."
         },
         { 
             zhHeader: "1973 年 6 月 1 日：巴巴仁證法師簽署並辦理法定遺囑登記，指定蔣梅生醫生為唯一繼承人", 
             enHeader: "1973-06-01: Execution and Registration of the Legal Will Appointing Dr. Meisheng Chiang",
-            zhDetail: "於 1973 年 6 月 1 日簽署並辦理了遺囑登記。該遺囑聲明將法師名下所有動產與不動產均由蔣醫生繼承。",
+            zhDetail: "於 1973 年 6 月 1 日簽署並辦理了遺囑登記。該遺囑聲明將法師名下所有動產與不動產均由蔣醫生繼承 。",
             enDetail: "Late Baba Reverend Chen executed a registered legal will on 01 June 1973, stating that after his death the entire property of the Chinese Temple Shravasti would be inherited by Mr. Meisheng Chiang, who would be the only successor."
         },
         { 
             zhHeader: "1976 年 9 月 4 日：法院在訴訟過程中查證普拉格亞南德所提文件之印花稅票為偽造", 
             enHeader: "1976-09-04: Judicial Discovery of Fraudulent Stamp Paper by Pragyanand",
-            zhDetail: "於 1976 年 9 月 4 日查證普拉格亞南德所提出的印花稅票文件實屬偽造，因其上既無簽名也無認證。",
-            enDetail: "During the proceedings, it was established on 04 September 1976 that the stamp paper produced by Pragyanand was fraudulent as it bore no signature and no authentication from the stamp vendor."
+            zhDetail: "於 1976 年 9 月 4 日查證普拉格亞南德所提出的印花稅票文件實屬偽造，因其上既無簽名也無認證 [cite: 4]。",
+            enDetail: "During the proceedings, it was established on 04 September 1976 that the stamp paper produced by Pragyanand was fraudulent as it bore no signature and no authentication from the stamp vendor[cite: 4]."
         },
         { 
             zhHeader: "1976 年 10 月 13 日至 14 日：巴巴仁證法師圓寂，蔣醫生依漢傳佛教儀軌辦理喪葬祭祀", 
             enHeader: "1976-10-13/14: Demise of Ven. Baba Ren Cheng and Performance of Last Rites",
-            zhDetail: "巴巴法師於 1976 年 10 月 13 日圓寂。由蔣醫生依照漢傳佛教儀軌辦理喪葬，地方政府官員及警方均出席參與。",
+            zhDetail: "巴巴法師於 1976 年 10 月 13 日圓寂。由蔣醫生依照漢傳佛教儀軌辦理喪葬，地方政府官員及警方均出席參與 。",
             enDetail: "Following the passing of Baba Reverend Chen on 13 October 1976, Mr. Meisheng Chiang performed his funeral rites in accordance with tradition, attended by local officials and monastics."
         },
         { 
             zhHeader: "巴巴仁證法師圓寂後：普拉格亞南德在蔣醫生不知情下取得未登記遺囑之認證", 
             enHeader: "Post-1976: Unlawful Procurement of Probate for an Unregistered Will",
-            zhDetail: "普拉格亞南德利用資訊不對等，在蔣醫生不知情的情況下，向巴赫賴奇法院取得了一份未登記遺囑的認證。",
+            zhDetail: "普拉格亞南德利用資訊不對等，在蔣醫生不知情的情況下，向巴赫賴奇法院取得了一份未登記遺囑的認證 。",
             enDetail: "Later, Pragyanand obtained probate of an unregistered will through the Civil Court in Bharaich, without our knowledge, based on a forged document."
         },
         { 
             zhHeader: "1980 年 4 月 14 日：土地合併官員裁定普拉格亞南德所持遺囑為偽造，並認定蔣醫生遺囑有效", 
             enHeader: "1980-04-14: Ruling Declaring the Opponent's Will Forged and Affirming Dr. Chiang",
-            zhDetail: "土地合併官員於 1980 年 4 月 14 日做出裁定：認定大菩提學會所持之未登記遺囑實屬偽造與虛構。",
+            zhDetail: "土地合併官員於 1980 年 4 月 14 日做出裁定：認定大菩提學會所持之未登記遺囑實屬偽造與虛構 。",
             enDetail: "On 14 April 1980, the Consolidation officer ruled that the unregistered will held by the Maha Bodhi Society of India was forged and fictitious."
         },
         { 
             zhHeader: "1980 年 4 月 23 日：政府稅收記錄正式更名，將財產更名為蔣醫生所有", 
             enHeader: "1980-04-23: Official Mutation in Revenue Records to Dr. Chiang’s Name",
-            zhDetail: "根據法院命令，政府稅收記錄於 1980 年 4 月 23 日正式完成更名程序，由蔣醫生繼承產權。",
+            zhDetail: "根據法院命令，政府稅收記錄於 1980 年 4 月 23 日正式完成更名程序，由蔣醫生繼承產權 。",
             enDetail: "The court ordered that the agricultural land be renamed to Dr. Chiang in the revenue records, replacing the late Baba on 23 April 1980."
         },
         { 
             zhHeader: "1982 年：巴赫賴奇民事法院再次確認 1973 年登記遺囑之法律效力", 
             enHeader: "1982: Reaffirmation of the 1973 Registered Will by the Civil Court",
-            zhDetail: "巴赫賴奇民事法院確認，巴巴法師於 1973 年簽署的正式登記遺囑具備絕對法律效力。",
+            zhDetail: "巴赫賴奇民事法院確認，巴巴法師於 1973 年簽署的正式登記遺囑具備絕對法律效力 。",
             enDetail: "According to Misc Case No. 12/70 of 1982, the court confirmed the validity of the registered will signed by Baba in 1973."
         },
         { 
             zhHeader: "1985 年 5 月 21 日：法院判定大菩提學會對華光寺之佔有為非法侵佔", 
             enHeader: "1985-05-21: Court Decree Declaring Occupation as Illegal and Forceful",
-            zhDetail: "法院發布命令判定：大菩提學會對寺院的佔有屬於非法且強行侵佔，違背佛教原則。",
+            zhDetail: "法院發布命令判定：大菩提學會對寺院的佔有屬於非法且強行侵佔，違背佛教原則 。",
             enDetail: "Possession by the Maha Bodhi Society through Pragyanand was judged to be illegal and forceful, contradicting Buddhist principles."
         },
         { 
             zhHeader: "2001 年 1 月 29 日：巴赫賴奇地方法院駁回普拉格亞南德之上訴", 
             enHeader: "2001-01-29: Dismissal of Appeal by the District Judge of Bahraich",
-            zhDetail: "普拉格亞南德提起上訴，但在 2001 年 1 月 29 日再次遭到地方法院駁回。",
-            enDetail: "Pragyanand appealed in front of the District Judge of Bahraich, but the case was dismissed on 29 January 2001."
+            zhDetail: "普拉格亞南德提起上訴，但在 2001 年 1 月 29 日再次遭到地方法院駁回 [cite: 4]。",
+            enDetail: "Pragyanand appealed in front of the District Judge of Bahraich, but the case was dismissed on 29 January 2001[cite: 4]."
         },
         { 
             zhHeader: "2010 年 2 月 22 日：蔣醫生致函印度大菩提學會管理機構，尋求和平解決", 
             enHeader: "2010-02-22: Formal Communication from Dr. Chiang Seeking Resolution",
-            zhDetail: "蔣醫生致函大菩提學會說明法律現況，希望能秉持佛教精神和平解決長年爭議。",
+            zhDetail: "蔣醫生致函大菩提學會說明法律現況，希望能秉持佛教精神和平解決長年爭議 。",
             enDetail: "Dr. Chiang sent a letter to the Governing Body of the Maha Bodhi Society on 22 February 2010 to explain the legal status."
         },
         { 
             zhHeader: "2010 年 9 月 18 日：印度大菩提學會管理機構決議終止與華光寺之所有關聯", 
             enHeader: "2010-09-18: Resolution by Maha Bodhi Society to Disassociate",
-            zhDetail: "管理機構會議一致決議：學會將終止與舍衛城中心的所有聯繫，並移交佔有權予蔣醫生。",
+            zhDetail: "管理機構會議一致決議：學會將終止與舍衛城中心的所有聯繫，並移交佔有權予蔣醫生 。",
             enDetail: "The Governing Body unanimously resolved that the Society would disassociate all its involvements with the Shravasti Centre."
         },
         { 
             zhHeader: "2010 年 9 月 25 日：大菩提學會年度大會正式通過解除聯繫之決議", 
             enHeader: "2010-09-25: Ratification of the Resolution by the Annual General Meeting",
-            zhDetail: "該決議在第 113 屆年度大會上獲得確認，正式解除一切聯繫。",
+            zhDetail: "該決議在第 113 屆年度大會上獲得確認，正式解除一切聯繫 。",
             enDetail: "This decision was affirmed during the 113th Annual General Meeting of the Society, effective from 25 September 2010."
         },
         { 
             zhHeader: "2013 年 5 月 3 日：總幹事致函檢附會議紀錄，確認學會已解除所有聯繫", 
             enHeader: "2013-05-03: Formal Dispatch of Certified Minutes Confirming Withdrawal",
-            zhDetail: "時任總幹事致函蔣醫生檢附經認證的會議紀錄，以利辦理移交程序。",
+            zhDetail: "時任總幹事致函蔣醫生檢附經認證的會議紀錄，以利辦理移交程序 。",
             enDetail: "The then General Secretary sent a letter to Dr. Chiang enclosing certified extracts of the Governing Body meeting minutes."
         },
         { 
             zhHeader: "2016 年 7 月 27 日：勒克瑙高等法院駁回普拉格亞南德之最終上訴", 
             enHeader: "2016-07-27: Final Dismissal by the High Court of Lucknow Bench",
-            zhDetail: "高等法院於 2016 年 7 月 27 日駁回最終上訴，維持原判，確認蔣醫生權利。",
-            enDetail: "Finally, Pragyanand moved and appealed to the High Court of Lucknow Bench, but the appeal was dismissed on 27 July 2016."
+            zhDetail: "高等法院於 2016 年 7 月 27 日駁回最終上訴，維持原判，確認蔣醫生權利 [cite: 4]。",
+            enDetail: "Finally, Pragyanand moved and appealed to the High Court of Lucknow Bench, but the appeal was dismissed on 27 July 2016[cite: 4]."
         },
         { 
             zhHeader: "2017 年 6 月 2 日：學會行政官再次確認 2010 年決議效力", 
             enHeader: "2017-06-02: Reconfirmation of the Resolution by the Administrative Officer",
-            zhDetail: "學會行政官再次確認 2010 年決議具備最終約束力。",
+            zhDetail: "學會行政官再次確認 2010 年決議具備最終約束力 。",
             enDetail: "On 02 June 2017, the Administrative Officer of the Society stated that the 2010 resolution regarding the Shravasti Centre was final."
         },
         { 
             zhHeader: "2023 年 12 月 29 日：現任團隊正式接管並展開環境維護與修繕工程", 
             enHeader: "2023-12-29: Formal Takeover and Commencement of Restoration",
-            zhDetail: "團隊正式接管，展開盥洗設施與禪堂修繕，提供莊嚴環境。",
+            zhDetail: "團隊正式接管，展開盥洗設施與禪堂修繕，提供莊嚴環境 。",
             enDetail: "Since taking over on 29 December 2023, management has focused on restoring the temple's sanctity and improving facilities."
         }
     ];
@@ -322,18 +332,18 @@
         if (currentLang === 'zh') {
             content.innerHTML = `
                 <h2>華光寺法統歸還與反對無理興訟之事實聲明</h2>
-                <p>本聲明旨在強調對手違法造假的事實，以及我方經高等法院認證的合法地位。</p>
+                <p>本聲明旨在強調對手違法造假的事實，以及我方經高等法院認證的合法地位 [cite: 4]。</p>
                 <h3>1. 核心法統：1973 年經政府登記之唯一有效遺囑</h3>
-                <p>華光寺的合法權源明確。創辦人巴巴仁證法師於 1973 年 6 月 1 日辦理了正式登記遺囑，指定蔣梅生醫生為唯一的合法繼承人。</p>
+                <p>華光寺的合法權源明確。創辦人巴巴仁證法師於 1973 年 6 月 1 日辦理了正式登記遺囑，指定蔣梅生醫生為唯一的合法繼承人 。此文件是隨後數十年法律判決的最終依據 。</p>
                 <h3>2. 對方之不法行為：偽造文書與強行侵佔</h3>
                 <ul>
-                    <li><strong>造假事實：</strong> 1976 年法院查明其提出的印花稅票文件完全偽造。</li>
-                    <li><strong>非法挪用：</strong> 佔據期間非法變賣寺內 150 棵名貴樹木。更將僧院挪用為世俗聚會場所，畜養水牛，違背佛教原則。</li>
+                    <li><strong>造假事實：</strong> 1976 年法院查明其提出的印花稅票文件完全偽造 [cite: 4]。</li>
+                    <li><strong>非法挪用：</strong> 佔據期間非法變賣寺內 150 棵名貴樹木 。更將僧院挪用為世俗聚會場所，畜養水牛，違背佛教原則 。</li>
                 </ul>
                 <h3>3. 各級法院判決：從地方到高等法院</h3>
-                <p>從地方法院到 2016 年勒克瑙高等法院，司法機關均判定對方遺囑為偽造。</p>
+                <p>從地方法院到 2016 年勒克瑙高等法院，司法機關均判定對方遺囑為偽造 。</p>
                 <h3>4. 大菩提學會之決議：正式切割與歸還</h3>
-                <p>2010 年 9 月，大菩提學會正式決議終止聯繫並移交佔有權予蔣醫生。</p>
+                <p>2010 年 9 月，大菩提學會正式決議終止聯繫並移交佔有權予蔣醫生 。根據學會章程，管理機構之決定具備最終約束力 。</p>
                 <div class="conclusion">
                     <p><strong>結語：</strong> 我方持有經政府登記與高等法院認證的合法法統，正義始終在我方。</p>
                 </div>
@@ -346,11 +356,11 @@
                 <p>The foundation of the temple is the registered will executed on 1973-06-01, appointing Dr. Meisheng Chiang as the sole successor.</p>
                 <h3>2. Unlawful Acts: Forgery and Misconduct</h3>
                 <ul>
-                    <li><strong>Forgery:</strong> Courts established in 1976 that the opponent's stamp papers were fraudulent.</li>
+                    <li><strong>Forgery:</strong> Courts established in 1976 that the opponent's stamp papers were fraudulent[cite: 4].</li>
                     <li><strong>Exploitation:</strong> Illegal felling of 150 trees and misusing the sacred space for secular gatherings, violating Buddhist ethics.</li>
                 </ul>
                 <h3>3. Judicial Vindication</h3>
-                <p>The High Court of Judicature at Allahabad (Lucknow Bench) dismissed the final appeal in 2016-07-27, confirming our absolute right to possession.</p>
+                <p>The High Court of Judicature at Allahabad (Lucknow Bench) dismissed the final appeal in 2016-07-27, confirming our absolute right to possession[cite: 4].</p>
                 <h3>4. Official Disassociation by the Society</h3>
                 <p>In 2010-09, the Maha Bodhi Society formally resolved to end all ties with the Shravasti Centre and return possession to Dr. Chiang.</p>
                 <div class="conclusion"><p><strong>Conclusion:</strong> We hold the legitimate title recognized by the government and the High Court. Justice remains firmly on our side.</p></div>
